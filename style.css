@@ -8,7 +8,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(-45deg, #2c3e50, #3498db, #8e44ad, #e74c3c);
+  background: linear-gradient(-45deg, #0b2743, #002842, #5d0084, #9e1000);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   color: #e0e0e0;
@@ -112,18 +112,23 @@ a:hover, .btn:hover, .details-container:hover, .color-container:hover, article:h
 }
 
 /* Hamburger Menu */
+/* Hamburger Menu */
 #hamburger-nav {
-  display: none;
-  padding: 1.5rem 10%;
+  display: none; /* Hidden by default, shown on mobile */
+  padding: 1rem 5%; /* Reduced padding for mobile */
   background: rgba(30, 30, 30, 0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  position: sticky;
+  position: fixed; /* Changed to fixed for better mobile experience */
   top: 0;
+  width: 100%; /* Ensure full width */
   z-index: 1000;
 }
 
 .hamburger-menu {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align hamburger icon to the right */
 }
 
 .hamburger-icon {
@@ -133,6 +138,7 @@ a:hover, .btn:hover, .details-container:hover, .color-container:hover, article:h
   height: 20px;
   width: 30px;
   cursor: pointer;
+  z-index: 1001; /* Ensure icon is above menu */
 }
 
 .hamburger-icon span {
@@ -156,26 +162,27 @@ a:hover, .btn:hover, .details-container:hover, .color-container:hover, article:h
 }
 
 .menu-links {
-  position: absolute;
-  top: 100%;
+  position: fixed; /* Changed to fixed to prevent scrolling issues */
+  top: 60px; /* Adjusted to account for hamburger-nav height */
   right: 0;
   background: rgba(30, 30, 30, 0.95);
-  width: 200px;
+  width: 100%; /* Full width for mobile */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  border-radius: 0.5rem;
+  border-radius: 0; /* Remove border-radius for full-width menu */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 999;
 }
 
 .menu-links.open {
-  max-height: 300px;
+  max-height: 300px; /* Adjust as needed for content */
 }
 
 .menu-links ul {
   list-style: none;
   padding: 1rem;
+  text-align: center; /* Center menu items for better appearance */
 }
 
 .menu-links a {
@@ -191,6 +198,88 @@ a:hover, .btn:hover, .details-container:hover, .color-container:hover, article:h
   background: rgba(255, 255, 255, 0.1);
   color: #4a90e2;
   border-radius: 0.25rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  #desktop-nav {
+    display: none; /* Hide desktop nav on mobile */
+  }
+
+  #hamburger-nav {
+    display: flex; /* Show hamburger nav on mobile */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem; /* Slightly smaller logo for mobile */
+  }
+
+  .section-container {
+    flex-direction: column; /* Stack sections vertically */
+    gap: 2rem;
+  }
+
+  #profile {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 5%;
+  }
+
+  .section__pic-container {
+    height: 250px;
+    width: 250px; /* Smaller profile image for mobile */
+  }
+
+  .title {
+    font-size: 2.5rem; /* Smaller title for mobile */
+  }
+
+  .about-containers {
+    flex-direction: column; /* Stack about containers */
+  }
+
+  .about-pic-container {
+    height: 200px;
+    width: 200px; /* Smaller about image for mobile */
+  }
+
+  .article-container {
+    flex-direction: column; /* Stack articles vertically */
+    align-items: center;
+  }
+
+  article {
+    width: 100%; /* Full width for experience articles */
+    max-width: 300px;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column; /* Stack contact info */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section__text__p1, .section__text__p2 {
+    font-size: 1rem; /* Smaller text for very small screens */
+  }
+
+  .btn {
+    padding: 0.5rem 1rem; /* Smaller buttons */
+    font-size: 0.9rem;
+  }
+
+  .contact-icon {
+    height: 1.5rem; /* Smaller contact icons */
+  }
+
+  .arrow {
+    right: 1rem;
+    bottom: 1rem;
+    height: 1.5rem; /* Smaller arrow */
+  }
 }
 
 /* Sections */
