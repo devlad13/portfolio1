@@ -222,9 +222,7 @@ section {
   max-width: 600px;
 }
 
-.section__
-
-System: text__p1 {
+.section__text__p1 {
   font-size: 1.2rem;
   color: #4a90e2;
   font-weight: 500;
@@ -394,19 +392,26 @@ System: text__p1 {
 article {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
   background: rgba(30, 30, 30, 0.95);
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   width: 200px;
+  height: 60px;
   transition: transform 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px #4a90e2, 0 0 20px #4a90e2, 0 0 30px #4a90e2;
 }
 
 article h3 {
   font-size: 1.1rem;
   font-weight: 500;
   color: #e0e0e0;
+  text-align: center;
 }
 
 /* Projects Section */
